@@ -1,16 +1,16 @@
 # __0x11. C - printf__
 
-CGroup project
+C Group project
 
 ### __Concepts__
 
 
 For this project, we expect you to look at these concepts:
 
-    * [Group Projects](https://intranet.alxswe.com/concepts/111 "Title").
-    * [Pair Programming - How To](https://intranet.alxswe.com/concepts/121 "Title").
-    * [Flowcharts](https://intranet.alxswe.com/concepts/130 "Title").
-    * [Technical Writing](Technical Writing "Title").
+  * [Group Projects](https://intranet.alxswe.com/concepts/111 "Title").
+  * [Pair Programming - How To](https://intranet.alxswe.com/concepts/121 "Title").
+  * [Flowcharts](https://intranet.alxswe.com/concepts/130 "Title").
+  * [Technical Writing](Technical Writing "Title").
 
 ## __Background Context__
 
