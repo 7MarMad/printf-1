@@ -1,26 +1,26 @@
-#__0x11. C - printf__
+# __0x11. C - printf__
 
 CGroup project
 
-###__Concepts__
+### __Concepts__
 
 
 For this project, we expect you to look at these concepts:
 
-    * [link](https://intranet.alxswe.com/concepts/111 "Group Projects").
-    * [link](https://intranet.alxswe.com/concepts/121 "Pair Programming - How To").
-    * [link](https://intranet.alxswe.com/concepts/130 "Flowcharts").
-    * [link](Technical Writing "Technical Writing").
+    * [Group Projects](https://intranet.alxswe.com/concepts/111 "Title").
+    * [Pair Programming - How To](https://intranet.alxswe.com/concepts/121 "Title").
+    * [Flowcharts](https://intranet.alxswe.com/concepts/130 "Title").
+    * [Technical Writing](Technical Writing "Title").
 
-##__Background Context__
+## __Background Context__
 
 *Write your own `printf` function.*
 
-##__Recourses__
+## __Recourses__
 
 Read or watch:
 
-   * [link](file:///C:/Users/user/Downloads/Secrets_of_printf.pdf "Secrets of printf")
+   * [Secrets of printf](file:///C:/Users/user/Downloads/Secrets_of_printf.pdf "Title")
    * Group Projects concept page (Don’t forget to read this)
    * Flowcharts concept page
 
@@ -29,7 +29,7 @@ man or help:
    * `printf (3)`
 
 
-##__Tasks__
+## __Tasks__
 
 **0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 mandatory**
@@ -51,7 +51,8 @@ Write a function that produces output according to a format.
 
 Repo:
 
-    * GitHub repository: printf
+   * GitHub repository: printf
+
 
 **1. Education is when you read the fine print. Experience is what you get if you don't
 mandatory**
@@ -70,4 +71,4 @@ Repo:
    * GitHub repository: printf
 
 
-(16 advamced tasks ...)
+(14 advanced tasks ...)
