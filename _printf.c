@@ -31,13 +31,15 @@ int _printf(const char *format, ...)
 	{
 		if (str[i] != '%')
 			_putchar(str[i]);
-		if (i == l && str[i] == '%')
+		if (i == l && str[i] == '%' && str[i + 1] != '\0')
 		{
 			num_of_char = _print_(str[i], str[i + 1], args);
 			i++;
 			l = track[++j];
 			len += num_of_char;
 		}
+		if (str[i] == '%' && str[i + 1] == '\0')
+			len = -1;
 	}
 	free(track);
 	return (len);
