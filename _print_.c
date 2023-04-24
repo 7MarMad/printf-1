@@ -63,8 +63,6 @@ int _print_(char str, char str2, va_list arg)
 		}
 		if (str2 == 'd' || str2 == 'i')
 			num += recur_putchar(va_arg(arg, int));
-		if (str2 == '\0')
-			num = -1;
 	}
 	return (num);
 }
