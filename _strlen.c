@@ -5,7 +5,7 @@
  * @s: the character to be counted
  * Return: the length integer
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int len = 0;
 	int i;
