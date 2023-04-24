@@ -4,6 +4,7 @@
 #include<string.h>
 #include "main.h"
 
+
 /**
  * _printf - the smae function as printf
  *
@@ -19,7 +20,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	len = strlen(format);
+	len = _strlen(format);
 	track = malloc((len / 2) * sizeof(int));
 	count = countt(format, track);
 	va_start(args, format);
