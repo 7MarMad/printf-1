@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 	{
 		if (str[i] != '%')
 			_putchar(str[i]);
-		if (i == l)
+		if (i == l && str[i] == '%')
 		{
 			num_of_char = _print_(str[i], str[i + 1], args);
 			i++;
