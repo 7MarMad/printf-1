@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+int _strlen(char *s);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int countt(const char *format, int *track);
