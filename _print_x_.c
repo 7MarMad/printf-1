@@ -73,7 +73,7 @@ void _print_x_(char *str)
 {
 	int number = 0, count = 0;
 
-	numbers = _atoi(_lowercase(str));
+	numbers = _atoi(toLower(str));
 	if (number > 15)
 		print_u_(number / 16);
 	_putchar((number % 16) + '0');
