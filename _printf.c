@@ -1,139 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdarg.h>
+#include<string.h>
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
 
-int _putchar(char c);
-
-int recur_putchar(int value);
-
-int _strlen(char *s);
 
 /**
- * _printf - print format into stdout
- * @format: format of the string to print
- * Return: number of formats printed
+ * _printf - the smae function as printf
+ *
+ * @format: string to print with identifiers
+ *
+ * Return: lentgh of the string that will be printed
  */
 int _printf(const char *format, ...)
 {
-	va_list l;
-
-	int num, count = 0;
-	char ch;
-
-	va_start(l, format);
+	int len, i, j = 0, *track, num_of_char = 0, l, count = 0;
+	va_list args;
+	const char *str;
 
 	if (format == NULL)
 		return (-1);
-
-	while ((ch = *format++) != '\0')
+	len = _strlen(format);
+	track = malloc((len / 2) * sizeof(int));
+	count = countt(format, track);
+	va_start(args, format);
+	str = format;
+	l = track[j];
+	len -= count * 2;
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (ch == '%')
+		if (str[i] != '%')
+			_putchar(str[i]);
+		if (i == l)
 		{
-			ch = *format++;
-			switch (ch)
-			{
-				case 'c':
-					{
-						char c = (char) va_arg(l, int);
-
-						write(1, &c, 1);
-						count++;
-					}
-					break;
-				case 's':
-					{
-						char *s = va_arg(l, char *);
-
-						if (s == NULL)
-							s ="(null)";
-						write(1, s, _strlen(s));
-						count += _strlen(s);
-					}
-					break;
-				case '%':
-					{
-						write(1, &ch, 1);
-						count++;
-					}
-					break;
-				case 'd':
-					{
-						num += recur_putchar(va_arg(l, int));
-						count += num;
-					}
-					break;
-				case 'i':
-					{
-						num += recur_putchar(va_arg(l, int));
-						count += num;
-					}
-					break;
-				default:
-					{
-						return (0);
-					}
-			}
-		}
-		else
-		{
-			write(1, &ch, 1);
-			count++;
+			num_of_char = _print_(str[i], str[i + 1], args);
+			i++;
+			l = track[++j];
+			len += num_of_char;
 		}
 	}
-	va_end(l);
-
-	return (count);
-}
-
-/**
- * _strlen - count the length of a character
- * @s: the character to be counted
- * Return: the length integer
- */
-int _strlen(char *s)
-{
-	int len = 0;
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		len++;
-	}
+	free(track);
 	return (len);
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-/**
- * recur_putchar - recursion to print with putchar
- *
- * @value: value in int to print
- *
- * Return: number of characters printed
- */
-int recur_putchar(int value)
-{
-	int num = 0;
-
-	if (value < 0)
-	{
-		_putchar('-');
-		value *= -1;
-	}
-	if (value > 9)
-		num += recur_putchar(value / 10);
-
-	_putchar('0' + (value % 10));
-	num++;
-	return (num);
 }
