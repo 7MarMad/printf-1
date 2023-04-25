@@ -42,8 +42,8 @@ int _printf(const char *format, ...)
 /*			l = track[++j];*/
 			len += num_of_char;
 		}
-		if (str[i] == '%' && str[i + 1] == '\0')
-			len = -1;
+/*		if (str[i] == '%' && str[i + 1] == '\0')*/
+/*			len = -1;*/
 	}
 	va_end(args);
 /*	free(track);*/
