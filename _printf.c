@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 						char *s = va_arg(l, char *);
 
 						if (s == NULL)
-							_putchar(76);
+							s ="(null)";
 						write(1, s, _strlen(s));
 						count += _strlen(s);
 					}
