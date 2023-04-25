@@ -22,6 +22,8 @@ int _printf(const char *format, ...)
 		return (-1);
 	len = _strlen(format);
 	track = malloc((len / 2) * sizeof(int));
+	if (track == NULL)
+		return (-1);
 	count = countt(format, track);
 	va_start(args, format);
 	str = format;

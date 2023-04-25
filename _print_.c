@@ -44,12 +44,12 @@ int _print_(char str, char str2, va_list arg)
 			_putchar('%');
 			num++;
 		}
-		if (str2 == 'c')
+		else if (str2 == 'c')
 		{
 			_putchar(va_arg(arg, int));
 			num++;
 		}
-		if (str2 == 's')
+		else if (str2 == 's')
 		{
 			ss = va_arg(arg, char *);
 			if (ss == NULL)
@@ -61,8 +61,13 @@ int _print_(char str, char str2, va_list arg)
 				num++;
 			}
 		}
-		if (str2 == 'd' || str2 == 'i')
+		else if (str2 == 'd' || str2 == 'i')
 			num += recur_putchar(va_arg(arg, int));
+		else
+		{
+			_putchar('%');
+			_putchar(str2);
+		}
 	}
 	return (num);
 }
