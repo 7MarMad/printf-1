@@ -10,7 +10,7 @@ int _print_u_(unsigned int number)
 	int count = 0;
 
 	if (number > 9)
-		print_u_(number / 10);
+		_print_u_(number / 10);
 	_putchar((number % 10) + '0');
 	count++;
 	return (count);
@@ -63,6 +63,24 @@ int recur_binary_put(unsigned int n)
         return (num);
 }
 /**
+ * recur_octal_put - printing the octal number
+ * @n: unsigned integre to be converted to octal
+ * Return: num as length of the octal number
+ */
+int recur_octal_put(unsigned int n)
+{
+	unsigned int a, r;
+	int num = 0;
+
+	a = n / 8;
+	if (a != 0)
+		num += recur_octal_put(a);
+	r = n - (8 * a);
+	_putchar('0' + r);
+	num++;
+	return (num);
+}
+/**
  * integer_print - getting here from _print_ for printing integers only
  *
  * @str2: character that define what to print and how
@@ -73,8 +91,12 @@ int recur_binary_put(unsigned int n)
 
 int integer_print(char str2, va_list arg)
 {
+	int num = 0;
+
 	if (str2 == 'b')
 		num += recur_binary_put(va_arg(arg, unsigned int));
+	else if (str2 == 'o')
+		num += recur_octal_put(va_arg(arg, unsigned int));
 	else if (str2 == 'u')
 		num += _print_u_(va_arg(arg, unsigned int));
 	else if (str2 == 'd' || str2 == 'i')
