@@ -2,12 +2,16 @@
 #include"main.h"
 
 /**
+ * hex_calc_low - getting hexadecimal number in lower case
  *
+ * @n: the number to be converted
+ *
+ * Return: count for how many prints
  */
 int hex_calc_low(unsigned int n)
 {
 	int count = 0;
-	unsigned a, r;
+	unsigned int a, r;
 
 	a = n / 16;
 	if (a != 0)
@@ -21,10 +25,18 @@ int hex_calc_low(unsigned int n)
 	return (count);
 }
 
+/**
+ * hex_calc_upp - getting hexadecimal number in upper case
+ *
+ * @n: the number to be converted
+ *
+ * Return: count for how many prints
+ */
+
 int hex_calc_upp(unsigned int n)
 {
 	int num = 0;
-	unsigned a, r;
+	unsigned int a, r;
 
 	a = n / 16;
 	if (a != 0)

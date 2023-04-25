@@ -4,6 +4,7 @@
 /**
  * _print_u_ - prints an unsigned integer
  * @number: the unsigned integer to print
+ * Return: count of prints that was made
  */
 int _print_u_(unsigned int number)
 {
@@ -25,24 +26,24 @@ int _print_u_(unsigned int number)
  */
 int recur_putchar(int value)
 {
-        int numm = 0, k = 0;
+	int numm = 0, k = 0;
 
-        if (value < 0)
-        {
-                value += 1;
-                value = -value;
-                _putchar('-');
-                numm++;
-                k++;
-        }
-        if (value > 9)
-                numm += recur_putchar(value / 10);
-        if (k == 1)
-                _putchar('0' + ((value % 10) + 1));
-        else
-                _putchar('0' + (value % 10));
-        numm++;
-        return (numm);
+	if (value < 0)
+	{
+		value += 1;
+		value = -value;
+		_putchar('-');
+		numm++;
+		k++;
+	}
+	if (value > 9)
+		numm += recur_putchar(value / 10);
+	if (k == 1)
+		_putchar('0' + ((value % 10) + 1));
+	else
+		_putchar('0' + (value % 10));
+	numm++;
+	return (numm);
 }
 /**
  * recur_binary_put - finding and priting the binary number
@@ -51,16 +52,16 @@ int recur_putchar(int value)
  */
 int recur_binary_put(unsigned int n)
 {
-        unsigned int a, r;
-        int num = 0;
+	unsigned int a, r;
+	int num = 0;
 
-        a = n / 2;
-        if (a != 0)
-                num += recur_binary_put(a);
-        r = n - (2 * a);
-        _putchar('0' + r);
-        num++;
-        return (num);
+	a = n / 2;
+	if (a != 0)
+		num += recur_binary_put(a);
+	r = n - (2 * a);
+	_putchar('0' + r);
+	num++;
+	return (num);
 }
 /**
  * recur_octal_put - printing the octal number
