@@ -43,6 +43,7 @@ int _printf(const char *format, ...)
 		if (str[i] == '%' && str[i + 1] == '\0')
 			len = -1;
 	}
+	va_end(args);
 	free(track);
 	return (len);
 }

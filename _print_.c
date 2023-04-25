@@ -17,6 +17,7 @@ int recur_putchar(int value)
 	{
 		value = -value;
 		_putchar('-');
+		numm++;
 	}
 	if (value > 9)
 		numm += recur_putchar(value / 10);
