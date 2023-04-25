@@ -11,17 +11,22 @@
  */
 int recur_putchar(int value)
 {
-	int numm = 0;
+	int numm = 0, k = 0;
 
 	if (value < 0)
 	{
+		value += 1;
 		value = -value;
 		_putchar('-');
 		numm++;
+		k++;
 	}
 	if (value > 9)
 		numm += recur_putchar(value / 10);
-	_putchar('0' + (value % 10));
+	if (k == 1)
+		_putchar('0' + ((value % 10) + 1));
+	else
+		_putchar('0' + (value % 10));
 	numm++;
 	return (numm);
 }
