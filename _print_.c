@@ -3,52 +3,6 @@
 #include "main.h"
 
 /**
- * recur_putchar - recursion to print with putchar
- *
- * @value: value in int to print
- *
- * Return: number of characters printed
- */
-int recur_putchar(int value)
-{
-	int numm = 0, k = 0;
-
-	if (value < 0)
-	{
-		value += 1;
-		value = -value;
-		_putchar('-');
-		numm++;
-		k++;
-	}
-	if (value > 9)
-		numm += recur_putchar(value / 10);
-	if (k == 1)
-		_putchar('0' + ((value % 10) + 1));
-	else
-		_putchar('0' + (value % 10));
-	numm++;
-	return (numm);
-}
-/**
- * recur_binary_put - finding and priting the binary number
- * @n: unsigned integer to be converted to binary
- * Return: num as length of the binary number
- */
-int recur_binary_put(unsigned int n)
-{
-	unsigned int a, r;
-	int num = 0;
-
-	a = n / 2;
-	if (a != 0)
-		num += recur_binary_put(a);
-	r = n - (2 * a);
-	_putchar('0' + r);
-	num++;
-	return (num);
-}
-/**
  * string_printing - printing the types of strings
  * @str2: the character to choose which print it is
  * @arg: the arg passed on
@@ -99,10 +53,8 @@ int _print_(char str, char str2, va_list arg)
 	{
 		if (str2 == 'c' || str2 == 's' || str2 == '%')
 			num += string_printing(str2, arg);
-		else if (str2 == 'b')
-			num += recur_binary_put(va_arg(arg, unsigned int));
-		else if (str2 == 'd' || str2 == 'i')
-			num += recur_putchar(va_arg(arg, int));
+		else if (str2 == 'b' || str2 == 'd' || str2 == 'i')
+			num += integer_print(str2, arg);
 		else if (str2 == '\0')
 			num = -1;
 		else
