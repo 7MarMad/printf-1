@@ -40,7 +40,7 @@ int hex_calc_upp(unsigned int n)
 
 	a = n / 16;
 	if (a != 0)
-		num += hex_calc_low(a);
+		num += hex_calc_upp(a);
 	r = n - (a * 16);
 	if (r < 10)
 		_putchar('0' + r);
