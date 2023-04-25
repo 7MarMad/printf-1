@@ -8,9 +8,9 @@
  *
  * Return: the result
  */
-int countt(const char *format, int *track)
+int countt(const char *format)
 {
-	int res = 0, i, j = 0, alone = 0;
+	int res = 0, i;
 	const char *str;
 
 	str = format;
@@ -23,11 +23,8 @@ int countt(const char *format, int *track)
 			str[i + 1] == 'i')
 			{
 				res++;
-				track[j++] = i;
 				i++;
 			}
-			else
-				alone++;
 		}
 	}
 	return (res);
