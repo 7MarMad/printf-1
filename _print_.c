@@ -64,6 +64,8 @@ int _print_(char str, char str2, va_list arg)
 		}
 		else if (str2 == 'd' || str2 == 'i')
 			num += recur_putchar(va_arg(arg, int));
+		else if (str2 == '\0')
+			num = -1;
 		else
 		{
 			_putchar('%');
