@@ -5,7 +5,7 @@ int main(void)
 {
 	int len;
 
-	len = _printf("%b\n", 236);
+	len = _printf("%x\n", 236);
 	printf("%d\n", len);
 	return (0);
 }

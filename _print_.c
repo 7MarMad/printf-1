@@ -56,6 +56,8 @@ int _print_(char str, char str2, va_list arg)
 		else if (str2 == 'b' || str2 == 'd' || str2 == 'i' || str2 == 'o' ||
 			str2 == 'u')
 			num += integer_print(str2, arg);
+		else if (str2 == 'x' || str2 == 'X')
+			num += print_hexa(str2, arg);
 		else if (str2 == '\0')
 			num = -1;
 		else
