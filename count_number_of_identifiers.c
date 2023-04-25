@@ -4,7 +4,6 @@
  * countt - counting the identifiers numbers
  *
  * @format: string to count from
- * @track: array of indexes
  *
  * Return: the result
  */

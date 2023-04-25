@@ -35,12 +35,18 @@ int _printf(const char *format, ...)
 	{
 		if (str[i] != '%')
 			_putchar(str[i]);
-		if (str[i] == '%' && str[i + 1] != '\0')
+		if (str[i] == '%')
 		{
 			num_of_char = _print_(str[i], str[i + 1], args);
 			i++;
 /*			l = track[++j];*/
-			len += num_of_char;
+			if (num_of_char == -1)
+			{
+				i--;
+				len = -1;
+			}
+			else if (num_of_char > 0)
+				len += num_of_char;
 		}
 /*		if (str[i] == '%' && str[i + 1] == '\0')*/
 /*			len = -1;*/
