@@ -3,15 +3,14 @@
 #include "main.h"
 
 /**
- * string_printing - printing the types of strings
- * @str2: the character to choose which print it is
- * @arg: the arg passed on
+ * string_sub_print - print for % and c
+ * @str2: identifier
+ * @arg: argument passed in function
  * Return: numb of printing
  */
-int string_printing(char str2, va_list arg)
+int string_sub_print(char str2, va_list arg)
 {
 	int num = 0;
-	char *ss;
 
 	if (str2 == '%')
 	{
@@ -23,14 +22,30 @@ int string_printing(char str2, va_list arg)
 		_putchar(va_arg(arg, int));
 		num++;
 	}
-	else if (str2 == 's' || str2 == 'S')
+	return (num);
+}
+
+/**
+ * string_printing - printing the types of strings
+ * @str2: the character to choose which print it is
+ * @arg: the arg passed on
+ * Return: numb of printing
+ */
+int string_printing(char str2, va_list arg)
+{
+	int num = 0;
+	char *ss;
+
+	if (str2 == '%' || str2 == 'c')
+		num += string_sub_print(str2, arg);
+	else if (str2 == 's' || str2 == 'S' || str2 == 'p')
 	{
 		ss = va_arg(arg, char *);
 		if (ss == NULL)
 			ss = "(null)";
 		while (ss[0] != '\0')
 		{
-			if (ss[0] == 0 || (31 < ss[0] && ss[0] < 127))
+			if (str2 != 'S' || (ss[0] == 0 || (ss[0] > 31 && ss[0] < 127)))
 			{
 				_putchar(ss[0]);
 				ss++;
@@ -67,7 +82,7 @@ int _print_(char str, char str2, va_list arg)
 
 	if (str == '%')
 	{
-		if (str2 == 'c' || str2 == 's' || str2 == '%' || str2 == 'S')
+		if (str2 == 'c' || str2 == 's' || str2 == '%' || str2 == 'S' || str2 == 'p')
 			num += string_printing(str2, arg);
 		else if (str2 == 'b' || str2 == 'd' || str2 == 'i' || str2 == 'o' ||
 			str2 == 'u')
