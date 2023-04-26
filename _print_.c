@@ -23,16 +23,32 @@ int string_printing(char str2, va_list arg)
 		_putchar(va_arg(arg, int));
 		num++;
 	}
-	else if (str2 == 's')
+	else if (str2 == 's' || str2 == 'S')
 	{
 		ss = va_arg(arg, char *);
 		if (ss == NULL)
 			ss = "(null)";
 		while (ss[0] != '\0')
 		{
-			_putchar(ss[0]);
-			ss++;
-			num++;
+			if (ss[0] == 0 || (31 < ss[0] && ss[0] < 127))
+			{
+				_putchar(ss[0]);
+				ss++;
+				num++;
+			}
+			else
+			{
+				_putchar('\\');
+				_putchar('x');
+				if (ss[0] < 15)
+				{
+					_putchar('0');
+					num++;
+				}
+				num += hex_calc_upp(ss[0]);
+				ss++;
+				num += 2;
+			}
 		}
 	}
 	return (num);
@@ -51,7 +67,7 @@ int _print_(char str, char str2, va_list arg)
 
 	if (str == '%')
 	{
-		if (str2 == 'c' || str2 == 's' || str2 == '%')
+		if (str2 == 'c' || str2 == 's' || str2 == '%' || str2 == 'S')
 			num += string_printing(str2, arg);
 		else if (str2 == 'b' || str2 == 'd' || str2 == 'i' || str2 == 'o' ||
 			str2 == 'u')
