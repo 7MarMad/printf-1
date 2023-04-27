@@ -10,5 +10,6 @@ int _print_(char str, char str2, va_list arg);
 int integer_print(char str2, va_list arg);
 int print_hexa(char str2, va_list arg);
 int hex_calc_upp(unsigned int n);
+int hex_calc_low(unsigned int n);
 
 #endif

@@ -26,6 +26,47 @@ int string_sub_print(char str2, va_list arg)
 }
 
 /**
+ * print_pointer - print the adress in a pointer
+ * @arg: argument to be printed
+ * Return: count
+ */
+int print_pointer(va_list arg)
+{
+	unsigned long int address = (unsigned long int) va_arg(arg, void *);
+	int count = 0, digit;
+	unsigned int i;
+	char hex[16];
+	char *prefix;
+	for(i = 0; i < sizeof(void *) * 2; i++)
+	{
+		digit = address % 16;
+		if(digit < 10)
+		{
+			hex[sizeof(void *) * 2 - i - 1] = '0' + digit;
+		}
+		else
+		{
+			hex[sizeof(void *) * 2 - i - 1] = 'a' + digit - 10;
+		}
+		address /= 16;
+	}
+	
+	prefix = "0x";
+
+	for(i = 0; i < 2; i++)
+	{
+		_putchar(prefix[i]);
+		count++;
+	}
+	for(i = 0; i < sizeof(void *) * 2; i++)
+	{
+		_putchar(hex[i]);
+		count++;
+	}
+	return (count);
+}
+
+/**
  * string_printing - printing the types of strings
  * @str2: the character to choose which print it is
  * @arg: the arg passed on
@@ -89,6 +130,8 @@ int _print_(char str, char str2, va_list arg)
 			num += integer_print(str2, arg);
 		else if (str2 == 'x' || str2 == 'X')
 			num += print_hexa(str2, arg);
+		else if  (str2 == 'p')
+			num += print_pointer(arg);
 		else if (str2 == '\0')
 			num = -1;
 		else
