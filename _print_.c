@@ -38,7 +38,7 @@ int string_printing(char str2, va_list arg)
 
 	if (str2 == '%' || str2 == 'c')
 		num += string_sub_print(str2, arg);
-	else if (str2 == 's' || str2 == 'S' || str2 == 'p')
+	else if (str2 == 's' || str2 == 'S')
 	{
 		ss = va_arg(arg, char *);
 		if (ss == NULL)
@@ -82,12 +82,12 @@ int _print_(char str, char str2, va_list arg)
 
 	if (str == '%')
 	{
-		if (str2 == 'c' || str2 == 's' || str2 == '%' || str2 == 'S' || str2 == 'p')
+		if (str2 == 'c' || str2 == 's' || str2 == '%' || str2 == 'S')
 			num += string_printing(str2, arg);
 		else if (str2 == 'b' || str2 == 'd' || str2 == 'i' || str2 == 'o' ||
 			str2 == 'u')
 			num += integer_print(str2, arg);
-		else if (str2 == 'x' || str2 == 'X')
+		else if (str2 == 'x' || str2 == 'X' || str2 == 'p')
 			num += print_hexa(str2, arg);
 		else if (str2 == '\0')
 			num = -1;

@@ -1,4 +1,5 @@
 #include<stdarg.h>
+#include<stddef.h>
 #include"main.h"
 
 /**
@@ -50,6 +51,62 @@ int hex_calc_upp(unsigned int n)
 	return (num);
 }
 
+/**
+ * printing_hexa - printing a haxadicamal number (address of memory)
+ *
+ * @n: the number to be printed
+ *
+ * Return: length of the number
+ */
+
+int printing_hexa(unsigned long int n)
+{
+	int num = 0;
+
+	if (n > 15)
+		num += printing_hexa(n / 16);
+	if ((n % 16) > 9)
+		_putchar('a' + (n % 16) - 10);
+	else
+		_putchar('0' + (n % 16));
+	num++;
+	return (num);
+}
+
+/**
+ * transit - function as bridge from print_hexa and printing_hexa
+ *
+ * @adr: address passed on
+ *
+ * Return: number of prints made
+ */
+
+int transit(void *adr)
+{
+	int num = 0;
+	unsigned long int address;
+	char *s;
+
+	s = "(nil)";
+	address = (unsigned long int)adr;
+	if (address == 0)
+	{
+		while (s[0] != '\0')
+		{
+			_putchar(s[0]);
+			num++;
+			s++;
+		}
+	}
+	else
+	{
+		_putchar('0');
+		_putchar('x');
+		num += 2;
+		num += printing_hexa(address);
+	}
+	return (num);
+}
 
 /**
  * print_hexa - printing a number in hexadecimal
@@ -68,5 +125,7 @@ int print_hexa(char str2, va_list arg)
 		num += hex_calc_low(va_arg(arg, unsigned int));
 	else if (str2 == 'X')
 		num += hex_calc_upp(va_arg(arg, unsigned int));
+	else if (str2 == 'p')
+		num += transit(va_arg(arg, void *));
 	return (num);
 }
