@@ -14,7 +14,7 @@ int main(void)
 	_printf("%p\n", (void *)0x7fff5100b608);
 	printf("%p\n", (void *)0x7fff5100b608);
 
-	_printf("%p", NULL);
+	_printf("%p\n", NULL);
 	printf("%p\n", NULL);
 
 	_printf("Can you print an address?\n%p\nNice!\n", (void *)0x7fff5100b6f8);

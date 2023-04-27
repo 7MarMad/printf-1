@@ -1,6 +1,7 @@
 #include "main.h"
 #include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - Entry point
@@ -11,8 +12,8 @@ int main(void)
 {
     int len;
     int len2;
-/*    long int l = (long int)UINT_MAX + 1024;
-    long int res = (long int)INT_MAX * 2;*/
+    long int l = (long int)UINT_MAX + 1024;
+    long res = (long int)INT_MAX * 2;
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -21,7 +22,7 @@ int main(void)
     printf("Length:[%d, %i]\n", len2, len2);
 
     _printf("%S\n", "Best\nSchool");
-/*    _printf("%u\n", 1024);
+    _printf("%u\n", 1024);
     printf("%u\n", 1024);
 
     _printf("%u\n", -1024);
@@ -121,7 +122,7 @@ int main(void)
     printf("%u == %o == %x == %X\n", 1024, 1024, 1024, 1024);
 
     _printf("uuoxxX%xuoXo\n", 1024);
-    printf("uuoxxX%xuoXo\n", 1024);*/
+    printf("uuoxxX%xuoXo\n", 1024);
 
     return (0);
 }
