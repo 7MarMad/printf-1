@@ -36,7 +36,7 @@ int rev_str(char *s)
 
 	if (s[0] == '\0')
 		return (num);
-	else if (s[1] != '\0')
+	if (s[1] != '\0')
 		num += rev_str(s + 1);
 	_putchar(s[0]);
 	num++;
