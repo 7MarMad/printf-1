@@ -54,9 +54,9 @@ int rot_str(char *s)
 
 	if (s[0] == '\0')
 		return (num);
-	if (s[0] < 'n' && s[0] >= 'a')
+	if ((s[0] < 'n' && s[0] >= 'a') || (s[0] < 'N' && s[0] >= 'A'))
 		_putchar(s[0] + 13);
-	else if (s[0] > 'm' && s[0] <= 'z')
+	else if ((s[0] > 'm' && s[0] <= 'z') || (s[0] > 'M' && s[0] <= 'Z'))
 		_putchar(s[0] - 13);
 	else
 		_putchar(s[0]);
@@ -69,6 +69,8 @@ int rot_str(char *s)
 /**
  * spec_str - printing the haxadecimal value instead of non printed characters
  *
+ * @str2: specifier
+ * @ss: string to print passed as argument in _printf
  *
  * Return: num of printing
  */
