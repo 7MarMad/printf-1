@@ -9,7 +9,18 @@
  */
 int main(void)
 {
+	int len, len2;
 
+	len = _printf("Complete the sentence: You %r nothing, Jon Snow.\n", "know");
+	len2 = printf("Complete the sentence: You wonk nothing, Jon Snow.\n");
+
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
 
 	_printf("%p\n", (void *)0x7fff5100b608);
 	printf("%p\n", (void *)0x7fff5100b608);
